@@ -33,7 +33,7 @@ const AuthProvider = ({children}) => {
     }
 
     const logOut = () => {
-        setLoading(true)
+        // setLoading(true)
         return signOut(auth);
     }
 
@@ -42,6 +42,8 @@ const AuthProvider = ({children}) => {
             if(currentUser){
                 setLoading(false);
                 setUser(currentUser);
+            }else{
+                setLoading(false)
             }
         })
         return ()=> unSubscribe();
