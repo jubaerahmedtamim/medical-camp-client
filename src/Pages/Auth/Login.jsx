@@ -26,27 +26,14 @@ const login = () => {
             console.log("Error image", error);
             toast.error(error.code);
         }
-        // signInUser(email, password)
-        //     .then(result => {
-        //         console.log(result.user);
-        //         //todo: toast
-        //         navigate(location?.state ? location.state : '/');
-        //     })
-        //     .catch(error => {
-        //         console.log(error.message);
-        //         if (error) {
-        //             //Todo: toast here 
-        //         }
-        //     })
     }
 
-    const handleGoogleLogin = () => {
-        googleLogin()
-            .then(result => {
-                console.log(result.user);
-                // toast.success("Logged in successfully using google.")
-                navigate(location?.state ? location.state : '/');
-            })
+    const handleGoogleLogin = async() => {
+        const res = await googleLogin();
+        if(res?.user?.email){
+            toast.success("Logged in successfully using google.");
+            navigate(location?.state ? location.state : '/');
+        }
     }
     
     return (
