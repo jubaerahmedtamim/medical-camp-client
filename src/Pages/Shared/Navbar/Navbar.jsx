@@ -15,6 +15,7 @@ const Navbar = () => {
 
     const handleLogout = async() =>{
          await logOut();
+         window.location.reload();
     }
     return (
         <div className="navbar bg-base-100">

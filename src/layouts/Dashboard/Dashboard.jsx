@@ -10,17 +10,17 @@ const Dashboard = () => {
     return (
         <div className='flex'>
             {/* dashboard side pannel */}
-            <div className="w-64 min-h-screen bg-orange-400">
+            <div className="w-64 min-h-screen bg-green-300">
                 <ul className='menu space-y-2 text-black'>
                     {
                         isAdmin
                             ? <>
-                                <li> <NavLink to='/dashboard/adminHome'> <FaHome></FaHome> Admin Home</NavLink></li>
+                                <li> <NavLink to='/dashboard/organizer-profile'> <FaHome></FaHome> Organizer Profile</NavLink></li>
                                 <li> <NavLink to='/dashboard/add-camp'> <FaEdit></FaEdit>  Add Camp</NavLink></li>
                                 <li> <NavLink to='/dashboard/payment'> <FaPaypal></FaPaypal> Payment History</NavLink></li>
                                 <li> <NavLink to='/dashboard/manage-Camp'> <FaList></FaList> Manage Camp</NavLink></li>
                                 <li> <NavLink to='/dashboard/manage-register-camp'> <FaBook></FaBook> Manage Registered Camp</NavLink></li>
-                                <li> <NavLink to='/dashboard/users'> <FaUsers></FaUsers> All Users</NavLink></li>
+                                <li> <NavLink to='/dashboard/participants'> <FaUsers></FaUsers> All Participants</NavLink></li>
                             </>
                             : <>
                                 <li> <NavLink to='/dashboard/userHome'> <FaHome></FaHome> User Home</NavLink></li>
