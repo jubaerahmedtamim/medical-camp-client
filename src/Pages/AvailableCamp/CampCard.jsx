@@ -8,7 +8,7 @@ const CampCard = ({ camp }) => {
     return (
         <div>
             <Card
-                className="max-w-sm"
+                className="max-w-screen-sm"
                 imgAlt="Meaningful alt text for an image that is not purely decorative"
                 imgSrc={image_url}
             >

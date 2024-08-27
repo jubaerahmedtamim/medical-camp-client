@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div className='flex flex-col min-h-screen'>
             <Navbar></Navbar>
-            <main className='flex-1'>
+            <main className='flex-1 w-full md:max-w-screen-xl mx-auto'>
                 <Outlet></Outlet>
             </main>
             <Footer></Footer>

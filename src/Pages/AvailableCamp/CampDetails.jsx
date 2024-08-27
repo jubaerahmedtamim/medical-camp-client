@@ -21,10 +21,10 @@ const CampDetails = () => {
                     </div>
                     <p>Camp Fees: ${campFees}</p>
                 </div>
-                <div >
+                <div>
                     <img className='rounded-lg' src={image_url} alt="image of camp" />
                 </div>
-                <p>{details}</p>
+                <p className=' max-w-screen-2xl md:max-w-screen-md mx-auto'>{details}</p>
                 <button className='btn btn-primary'>Join Camp</button>
             </div>
         </div>

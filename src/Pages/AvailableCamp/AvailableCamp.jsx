@@ -10,7 +10,7 @@ const AvailableCamp = () => {
     return (
         <div>
             <SectionTitle heading={'Available Camps'} subHeading={"Let's find your medical camps."}></SectionTitle>
-            <div className='grid grid-cols-1 md:grid-cols-3 '>
+            <div className='grid gap-8 grid-cols-1 md:grid-cols-3 '>
                 {
                     availableCamps.map(camp => <CampCard key={camp._id} camp={camp}></CampCard>)
                 }

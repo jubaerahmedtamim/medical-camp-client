@@ -2,6 +2,7 @@ import React from 'react';
 import SectionTitle from '../../components/SectionTitle';
 import FeedbackRatings from '../../components/Feedback&Ratings/FeedbackRatings';
 import { Helmet } from 'react-helmet-async';
+import Banner from './Banner/Banner';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
                 <title>CampDoc | Home</title>
             </Helmet>
             {/* <SectionTitle heading={"Home"} subHeading={'welcome home.'}></SectionTitle> */}
+            <Banner></Banner>
             <FeedbackRatings></FeedbackRatings>
         </div>
     );
