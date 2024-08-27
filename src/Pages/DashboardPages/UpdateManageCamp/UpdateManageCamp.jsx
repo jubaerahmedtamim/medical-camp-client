@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useForm } from 'react-hook-form';
@@ -9,9 +9,8 @@ import SectionTitle from '../../../components/SectionTitle';
 
 const UpdateManageCamp = () => {
     const { data } = useLoaderData();
-    console.log(data);
     const { campName, campFees, location, date, time, professionalName, details, image, _id } = data
-
+    const navigate = useNavigate();
 
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
@@ -45,6 +44,7 @@ const UpdateManageCamp = () => {
         const res = await axiosSecure.put(`/update-camp/${_id}`, campInfo);
         if (res.data?.modifiedCount> 0) {
             reset();
+            navigate('/dashboard/manage-camp')
             Swal.fire({
                 position: "top-end",
                 icon: "success",
