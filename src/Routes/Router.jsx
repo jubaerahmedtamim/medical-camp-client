@@ -9,6 +9,8 @@ import ManageCamp from "../Pages/DashboardPages/ManageCamp/ManageCamp";
 import RegisteredCamp from "../Pages/DashboardPages/RegisteredCamp/RegisteredCamp";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import AvailableCamp from "../Pages/AvailableCamp/AvailableCamp";
+import UpdateManageCamp from "../Pages/DashboardPages/UpdateManageCamp/UpdateManageCamp";
+import axios from "axios";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +47,11 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-camp',
                 element: <ManageCamp></ManageCamp>
+            },
+            {
+                path: 'manage-Camp/update-manage-camp/:id',
+                element: <UpdateManageCamp></UpdateManageCamp>,
+                loader: ({params})=> axios.get(`http://localhost:5000/manage-camp/${params.id}`),
             },
             {
                 path: 'manage-register-camp',

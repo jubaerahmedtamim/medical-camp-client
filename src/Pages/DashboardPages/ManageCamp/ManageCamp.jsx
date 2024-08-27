@@ -8,10 +8,14 @@ import { useQuery } from '@tanstack/react-query';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import LoadingSpinner from '../../../components/LoadingSpinner';
+import { Link } from 'react-router-dom';
+
 
 const ManageCamp = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+    // modal
+
 
     const { data: manageCamps = [], isLoading, refetch } = useQuery({
         queryKey: ["manageCamps"],
@@ -49,8 +53,8 @@ const ManageCamp = () => {
         });
     }
 
-    if(isLoading) return <LoadingSpinner></LoadingSpinner>
-    
+    if (isLoading) return <LoadingSpinner></LoadingSpinner>
+
     return (
         <div>
             <Helmet>
@@ -85,9 +89,11 @@ const ManageCamp = () => {
                                     <td>{camp.date}</td>
                                     <td>{camp.time}</td>
                                     <td>
-                                        <button className='btn btn-square btn-outline'>
-                                            <FaEdit className='text-lg'></FaEdit>
-                                        </button>
+                                        <Link to={`update-manage-camp/${camp._id}`}>
+                                            <button className='btn btn-square btn-outline'>
+                                                <FaEdit className='text-lg'></FaEdit>
+                                            </button>
+                                        </Link>
                                     </td>
                                     <td>
                                         <button onClick={() => handleDeleteCamp(camp._id)} className='btn btn-square btn-outline'>
