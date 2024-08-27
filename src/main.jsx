@@ -9,9 +9,11 @@ import AuthProvider from './AuthProviders/AuthProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <QueryClientProvider client={QueryClient}>
+    <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <HelmetProvider>
           <Toaster></Toaster>

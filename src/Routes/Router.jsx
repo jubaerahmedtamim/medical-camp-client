@@ -8,7 +8,7 @@ import AddCamp from "../Pages/DashboardPages/AddCamp/AddCamp";
 import ManageCamp from "../Pages/DashboardPages/ManageCamp/ManageCamp";
 import RegisteredCamp from "../Pages/DashboardPages/RegisteredCamp/RegisteredCamp";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
-
+import AvailableCamp from "../Pages/AvailableCamp/AvailableCamp";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: '/login', 
                 element: <Login></Login> ,
+            },
+            {
+                path: '/available-camps', 
+                element: <AvailableCamp></AvailableCamp> ,
             },
             {
                 path: '/contact-us', 
