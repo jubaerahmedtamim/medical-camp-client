@@ -11,6 +11,7 @@ import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import AvailableCamp from "../Pages/AvailableCamp/AvailableCamp";
 import UpdateManageCamp from "../Pages/DashboardPages/UpdateManageCamp/UpdateManageCamp";
 import axios from "axios";
+import CampDetails from "../Pages/AvailableCamp/CampDetails";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ export const router = createBrowserRouter([
             {
                 path: '/available-camps', 
                 element: <AvailableCamp></AvailableCamp> ,
+            },
+            {
+                path: '/camp-details/:id', 
+                element: <CampDetails></CampDetails> ,
+                loader: ({params})=> axios.get(`http://localhost:5000/manage-camp/${params.id}`),
             },
             {
                 path: '/contact-us', 

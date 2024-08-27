@@ -1,12 +1,11 @@
 
-import { FaAd, FaBook, FaCalendar, FaEdit, FaEnvelope, FaHome, FaList, FaPaypal, FaShoppingCart, FaUser, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaAd, FaBook, FaCalendar, FaEdit, FaEnvelope, FaHome, FaList, FaPaypal, FaShoppingCart, FaUser, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from 'react-router-dom';
 
 
 const Dashboard = () => {
-    // const [cart] = useCart();
     // const [isAdmin] = useAdmin();
-    const isAdmin = true;
+    const isAdmin = false;
     return (
         <div className='flex'>
             {/* dashboard side pannel */}
@@ -23,19 +22,16 @@ const Dashboard = () => {
                                 <li> <NavLink to='/dashboard/participants'> <FaUsers></FaUsers> All Participants</NavLink></li>
                             </>
                             : <>
-                                <li> <NavLink to='/dashboard/userHome'> <FaHome></FaHome> User Home</NavLink></li>
-                                <li> <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar>  Reservation</NavLink></li>
-                                <li> <NavLink to='/dashboard/payment'> <FaPaypal></FaPaypal> Payment History</NavLink></li>
-                                <li> <NavLink to='/dashboard/cart'> <FaShoppingCart></FaShoppingCart> My Cart ({cart.length})</NavLink></li>
-                                <li> <NavLink to='/dashboard/review'> <FaAd></FaAd> Add Review</NavLink></li>
-                                <li> <NavLink to='/dashboard/booking'> <FaList></FaList> My Booking</NavLink></li>
+                                <li> <NavLink to='/dashboard/userHome'> <FaHome></FaHome> Analytics</NavLink></li>
+                                <li> <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar>  Participant Profile</NavLink></li>
+                                <li> <NavLink to='/dashboard/payment'> <FaPaypal></FaPaypal> Registered Camps</NavLink></li>
+                                <li> <NavLink to='/dashboard/cart'> <FaShoppingCart></FaShoppingCart> Payment History </NavLink></li>
                             </>
                     }
                     <div className='divider '></div>
                     {/* shared sidebar */}
                     <li> <NavLink to='/'> <FaHome></FaHome> Home</NavLink></li>
-                    <li> <NavLink to='/order/salad'> <FaList></FaList>My Booking</NavLink></li>
-                    <li> <NavLink to='/order/contact'> <FaEnvelope></FaEnvelope> Contact</NavLink></li>
+                    <li> <NavLink to='/contact-us'> <FaEnvelope></FaEnvelope> Contact</NavLink></li>
                 </ul>
             </div>
             {/* dashboard content */}
