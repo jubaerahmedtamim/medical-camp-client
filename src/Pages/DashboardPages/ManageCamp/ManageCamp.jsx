@@ -6,6 +6,8 @@ import SectionTitle from '../../../components/SectionTitle';
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import LoadingSpinner from '../../../components/LoadingSpinner';
 
 const ManageCamp = () => {
     const axiosSecure = useAxiosSecure();
@@ -16,11 +18,39 @@ const ManageCamp = () => {
         enabled: !!user?.email,
         queryFn: async () => {
             const res = await axiosSecure.get(`/manage-camps?addedBy=${user?.email}`);
-            console.log(res.data);
+            // console.log(res.data);
             return res.data;
         }
     })
 
+    const handleDeleteCamp = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/manage-camps/${id}`)
+                // console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your camp has been deleted.",
+                        icon: "success"
+                    });
+                    refetch();
+                }
+
+            }
+        });
+    }
+
+    if(isLoading) return <LoadingSpinner></LoadingSpinner>
+    
     return (
         <div>
             <Helmet>
@@ -60,7 +90,7 @@ const ManageCamp = () => {
                                         </button>
                                     </td>
                                     <td>
-                                        <button className='btn btn-square btn-outline'>
+                                        <button onClick={() => handleDeleteCamp(camp._id)} className='btn btn-square btn-outline'>
                                             <FaTrash className='text-red-600 text-lg'></FaTrash>
                                         </button>
                                     </td>
