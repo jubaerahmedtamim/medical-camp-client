@@ -13,6 +13,7 @@ import UpdateManageCamp from "../Pages/DashboardPages/UpdateManageCamp/UpdateMan
 import axios from "axios";
 import CampDetails from "../Pages/AvailableCamp/CampDetails";
 import AllParticipants from "../Pages/DashboardPages/AllParticipants/AllParticipants";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
 
 export const router = createBrowserRouter([
     {
@@ -53,15 +54,15 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: 'add-camp',
-                element: <AddCamp></AddCamp>,
+                element:  <AdminRoute><AddCamp></AddCamp></AdminRoute>
             },
             {
                 path: 'manage-camp',
-                element: <ManageCamp></ManageCamp>
+                element: <AdminRoute><ManageCamp></ManageCamp></AdminRoute>
             },
             {
                 path: 'manage-Camp/update-manage-camp/:id',
-                element: <UpdateManageCamp></UpdateManageCamp>,
+                element: <AdminRoute><UpdateManageCamp></UpdateManageCamp></AdminRoute>,
                 loader: ({params})=> axios.get(`http://localhost:5000/manage-camp/${params.id}`),
             },
             {
