@@ -25,7 +25,7 @@ const Dashboard = () => {
                             : <>
                                 <li> <NavLink to='/dashboard/userHome'> <FaHome></FaHome> Analytics</NavLink></li>
                                 <li> <NavLink to='/dashboard/reservation'> <FaCalendar></FaCalendar>  Participant Profile</NavLink></li>
-                                <li> <NavLink to='/dashboard/payment'> <FaPaypal></FaPaypal> Registered Camps</NavLink></li>
+                                <li> <NavLink to='/dashboard/register-camp'> <FaPaypal></FaPaypal> Registered Camps</NavLink></li>
                                 <li> <NavLink to='/dashboard/cart'> <FaShoppingCart></FaShoppingCart> Payment History </NavLink></li>
                             </>
                     }

@@ -14,6 +14,7 @@ import axios from "axios";
 import CampDetails from "../Pages/AvailableCamp/CampDetails";
 import AllParticipants from "../Pages/DashboardPages/AllParticipants/AllParticipants";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
+import RegisterCamp from "../Pages/DashboardPages/Participants/RegisterCamp/RegisterCamp";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,11 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            {
+                path: 'register-camp',
+                element: <RegisterCamp></RegisterCamp>,
+            },
+            // admin's
             {
                 path: 'add-camp',
                 element:  <AdminRoute><AddCamp></AddCamp></AdminRoute>
