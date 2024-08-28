@@ -28,6 +28,7 @@ const AllParticipants = () => {
                 const res = await axiosSecure.patch(`/users/admin/${id}`);
                 if (res.data.modifiedCount > 0) {
                     toast.success("User has been successfully made an Organizer.")
+                    refetch();
                 }
             }
         });
@@ -35,7 +36,7 @@ const AllParticipants = () => {
     }
     return (
         <div>
-            <h1>Total Participants: {users.length}</h1>
+            <h1 className='text-3xl'>Total Participants: {users.length}</h1>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
