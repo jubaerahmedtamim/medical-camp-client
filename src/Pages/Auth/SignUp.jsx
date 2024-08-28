@@ -5,11 +5,13 @@ import { FaEyeSlash, FaRegEye } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import uploader from '../../Utils/uploader';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const SignUp = () => {
     const { createUser, updateUserInfo, logOut, setLoading } = useAuth();
     const [showPassword, setShowPassword] = useState(false)
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const { register, handleSubmit, formState: { errors }, } = useForm()
 
@@ -28,21 +30,21 @@ const SignUp = () => {
             const uploadedUserImageUrl = res.data.display_url;
             try {
                 const userResult = await createUser(email, password);
-                const user = userResult.user;
 
                 const newUser = {
-                    name: user?.name,
-                    email: user?.email,
+                    name: name,
+                    email: userResult.user?.email,
                 };
                 if (userResult.user?.email) {
                     try {
                         // todo: post user to the database
+                        await  axiosPublic.post('/users', newUser);
                         await updateUserInfo(name, uploadedUserImageUrl);
                         toast.dismiss(loadingToast);
                         toast.success("Successfully created!")
-                        console.log(user);
-                        await logOut();
-                        navigate('/login');
+                        // console.log(user);
+
+                        navigate('/');
                     } catch (error) {
                         setLoading(false);
                         console.log("Error in user update", error);

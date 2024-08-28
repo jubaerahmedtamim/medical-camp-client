@@ -12,6 +12,7 @@ import AvailableCamp from "../Pages/AvailableCamp/AvailableCamp";
 import UpdateManageCamp from "../Pages/DashboardPages/UpdateManageCamp/UpdateManageCamp";
 import axios from "axios";
 import CampDetails from "../Pages/AvailableCamp/CampDetails";
+import AllParticipants from "../Pages/DashboardPages/AllParticipants/AllParticipants";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: '/login', 
                 element: <Login></Login> ,
+            },
+            {
+                path: '/signup', 
+                element: <SignUp></SignUp>,
             },
             {
                 path: '/available-camps', 
@@ -62,6 +67,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-register-camp',
                 element: <RegisteredCamp></RegisteredCamp>
+            },
+            {
+                path: 'participants',
+                element: <AllParticipants></AllParticipants>
             },
         ]
     }

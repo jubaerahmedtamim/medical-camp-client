@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import useAuth from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const login = () => {
     const { signInUser, googleLogin, setLoading } = useAuth();
@@ -12,6 +13,7 @@ const login = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm()
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const onSubmit = async(data) => {
         const { email, password, } = data;
@@ -30,8 +32,15 @@ const login = () => {
 
     const handleGoogleLogin = async() => {
         const res = await googleLogin();
+        console.log(res);
+        const newUser = {
+            name: res.user?.displayName,
+            email: res.user?.email,
+        }
         if(res?.user?.email){
+            await axiosPublic.post('/users', newUser)
             toast.success("Logged in successfully using google.");
+
             navigate(location?.state ? location.state : '/');
         }
     }
