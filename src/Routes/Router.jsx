@@ -10,13 +10,14 @@ import RegisteredCamp from "../Pages/DashboardPages/RegisteredCamp/RegisteredCam
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import AvailableCamp from "../Pages/AvailableCamp/AvailableCamp";
 import UpdateManageCamp from "../Pages/DashboardPages/UpdateManageCamp/UpdateManageCamp";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import CampDetails from "../Pages/AvailableCamp/CampDetails";
 import AllParticipants from "../Pages/DashboardPages/AllParticipants/AllParticipants";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import RegisterCamp from "../Pages/DashboardPages/Participants/RegisterCamp/RegisterCamp";
 import Payment from "../Pages/DashboardPages/Participants/Payment/Payment";
 import ParticipantProfile from "../Pages/DashboardPages/Participants/ParticipantProfile/ParticipantProfile";
+import PaymentHistory from "../Pages/DashboardPages/Participants/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
     {
@@ -60,8 +61,13 @@ export const router = createBrowserRouter([
                 element: <RegisterCamp></RegisterCamp>,
             },
             {
-                path: 'payment',
-                element: <Payment></Payment>
+                path: 'payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params})=> axios.get(`http://localhost:5000/registered-camp/${params.id}`)
+            },
+            {
+                path: 'payment-history',
+                element: <PaymentHistory></PaymentHistory>
             },
             {
                 path: 'participantProfile',

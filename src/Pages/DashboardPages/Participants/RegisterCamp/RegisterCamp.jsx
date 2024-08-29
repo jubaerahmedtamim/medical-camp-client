@@ -42,7 +42,7 @@ const RegisterCamp = () => {
                                 <td>${camp.campFees}</td>
                                 <td>{camp.participantName}</td>
                                 <td>
-                                    {camp.payment_status === 'unpaid' ? <Link to='/dashboard/payment'><button className='btn btn-sm'>pay</button></Link> : <p className=' text-green-700 disabled'>Paid</p>}
+                                    {camp.payment_status === 'unpaid' ? <Link to={`/dashboard/payment/${camp._id}`}><button className='btn btn-sm'>pay</button></Link> : <p className=' text-green-700 disabled'>Paid</p>}
                                 </td>
                                 <td>
                                     {
