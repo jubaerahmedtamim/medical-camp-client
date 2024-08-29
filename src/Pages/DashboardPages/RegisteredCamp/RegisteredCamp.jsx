@@ -50,7 +50,16 @@ const RegisteredCamp = () => {
             confirmButtonText: "Yes, cancel it!"
           }).then(async(result) => {
             if (result.isConfirmed) {
-                
+                const res = await axiosSecure.delete(`/delete-registered-camp/${id}`);
+                if(res.data.deletedCount > 0){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "This camp has been successfully cancel.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
             }
           });
     }
