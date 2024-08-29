@@ -12,7 +12,7 @@ const RegisterCamp = () => {
         queryKey: ["registeredCamps", user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/registered-camps?email=${user?.email}`);
-            console.log(res.data);
+            // console.log(res.data);
             return res.data
         }
     })

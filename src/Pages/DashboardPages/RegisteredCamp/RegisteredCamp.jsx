@@ -11,7 +11,7 @@ const RegisteredCamp = () => {
         queryKey: ["registeredCamps"],
         queryFn: async () => {
             const res = await axiosSecure.get(`/registered-camps`);
-            console.log(res.data);
+            // console.log(res.data);
             return res.data
         }
     })
@@ -28,6 +28,7 @@ const RegisteredCamp = () => {
             if (result.isConfirmed) {
                 const res = await axiosSecure.patch(`/update-registered-camp-confirmation/${id}`)
                 if (res.data.modifiedCount > 0) {
+                    refetch()
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -52,6 +53,7 @@ const RegisteredCamp = () => {
             if (result.isConfirmed) {
                 const res = await axiosSecure.delete(`/delete-registered-camp/${id}`);
                 if(res.data.deletedCount > 0){
+                    refetch();
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
