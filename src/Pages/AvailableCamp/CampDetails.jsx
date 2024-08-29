@@ -21,6 +21,9 @@ const CampDetails = () => {
             campName,
             campFees,
             image_url,
+            payment_status: 'unpaid',
+            confirmation_status: 'Pending',
+            
         }
         Swal.fire({
             title: "Are you sure?",

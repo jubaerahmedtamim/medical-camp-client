@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import useAuth from '../../../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const RegisterCamp = () => {
     const { user } = useAuth();
@@ -35,19 +36,29 @@ const RegisterCamp = () => {
                     </thead>
                     <tbody>
                         {
-                            registeredCamps.map((camp,idx) => <tr>
-                                <th>{idx+1}</th>
+                            registeredCamps.map((camp, idx) => <tr key={camp._id}>
+                                <th>{idx + 1}</th>
                                 <td>{camp.campName}</td>
                                 <td>${camp.campFees}</td>
                                 <td>{camp.participantName}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    {camp.payment_status === 'unpaid' ? <Link to='/dashboard/payment'><button className='btn btn-sm'>pay</button></Link> : <p className=' text-green-700 disabled'>Paid</p>}
+                                </td>
+                                <td>
+                                    {
+                                        camp.confirmation_status === 'Pending' ? "Pending": "Confirmed"
+                                    }
+                                </td>
+                                <td>
+                                    <button className='btn btn-xs btn-error'>Cancel</button>
+                                </td>
+                                <td>
+                                    <button disabled className='btn btn-sm btn-success'> Give feedback</button>
+                                </td>
                             </tr>)
                         }
-                        
-                        
+
+
                     </tbody>
                 </table>
             </div>
