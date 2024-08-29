@@ -16,6 +16,7 @@ import AllParticipants from "../Pages/DashboardPages/AllParticipants/AllParticip
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import RegisterCamp from "../Pages/DashboardPages/Participants/RegisterCamp/RegisterCamp";
 import Payment from "../Pages/DashboardPages/Participants/Payment/Payment";
+import ParticipantProfile from "../Pages/DashboardPages/Participants/ParticipantProfile/ParticipantProfile";
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
             {
                 path: 'payment',
                 element: <Payment></Payment>
+            },
+            {
+                path: 'participantProfile',
+                element: <ParticipantProfile></ParticipantProfile>
             },
             // admin's
             {
