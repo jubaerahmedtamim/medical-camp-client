@@ -7,6 +7,7 @@ import useAuth from '../../../../hooks/useAuth';
 const PaymentHistory = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
+
     const { data: payments = [] } = useQuery({
         queryKey: ['payment-history'],
         queryFn: async () => {
@@ -14,6 +15,7 @@ const PaymentHistory = () => {
             return res.data;
         }
     })
+    
     return (
         <div>
             <SectionTitle heading={'Payments History'} subHeading={"See your all payments here."}></SectionTitle>

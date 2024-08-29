@@ -18,7 +18,7 @@ const ParticipantProfile = () => {
                         width="300"
                         className="mb-3 rounded-full  border-2 shadow-lg"
                     />
-                    <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{user?.displayName}</h5>
+                    <h5 className="mb-1 text-xl font-medium text-gray-900">{user?.displayName}</h5>
                     <span className="text-sm text-gray-500 dark:text-gray-400">Gmail: {user?.email}</span>
                     <div  className="mt-4  space-x-3 lg:mt-6">
                         <a  
