@@ -59,20 +59,20 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: 'register-camp',
-                element: <RegisterCamp></RegisterCamp>,
+                element: <PrivateRoute><RegisterCamp></RegisterCamp></PrivateRoute>,
             },
             {
                 path: 'payment/:id',
-                element: <Payment></Payment>,
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
                 loader: ({params})=> axios.get(`http://localhost:5000/registered-camp/${params.id}`)
             },
             {
                 path: 'payment-history',
-                element: <PaymentHistory></PaymentHistory>
+                element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
             },
             {
                 path: 'participantProfile',
-                element: <ParticipantProfile></ParticipantProfile>
+                element: <PrivateRoute><ParticipantProfile></ParticipantProfile></PrivateRoute>
             },
             // admin's
             {

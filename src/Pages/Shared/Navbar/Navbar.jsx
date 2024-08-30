@@ -19,7 +19,7 @@ const Navbar = () => {
          window.location.reload();
     }
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 w-full md:max-w-screen-xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,8 +68,7 @@ const Navbar = () => {
                     </div>
                     : <div>
                         
-                        <Link to='/login'> <button className="btn btn-accent btn-sm">Login</button> </Link>
-                        <Link to='/signup'> <button className="btn btn-secondary btn-sm">Sign Up</button> </Link>
+                        <Link to='/login'> <button className="btn btn-accent btn-sm">Join Us</button> </Link>
                     </div>
                 }
             </div>
