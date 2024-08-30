@@ -17,7 +17,6 @@ const Dashboard = () => {
                             ? <>
                                 <li> <NavLink to='/dashboard/organizer-profile'> <FaHome></FaHome> Organizer Profile</NavLink></li>
                                 <li> <NavLink to='/dashboard/add-camp'> <FaEdit></FaEdit>  Add Camp</NavLink></li>
-                                <li> <NavLink to='/dashboard/payment'> <FaPaypal></FaPaypal> Payment History</NavLink></li>
                                 <li> <NavLink to='/dashboard/manage-Camp'> <FaList></FaList> Manage Camp</NavLink></li>
                                 <li> <NavLink to='/dashboard/manage-register-camp'> <FaBook></FaBook> Manage Registered Camp</NavLink></li>
                                 <li> <NavLink to='/dashboard/participants'> <FaUsers></FaUsers> All Participants</NavLink></li>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 const axiosPublic = axios.create({
-    baseURL: 'https://medical-camp-server-sigma.vercel.app',
+    baseURL: 'https://medical-camp-server-eight.vercel.app',
 })
 const useAxiosPublic = () => {
     return axiosPublic;

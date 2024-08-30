@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             {
                 path: '/camp-details/:id', 
                 element: <CampDetails></CampDetails> ,
-                loader: ({params})=> axios.get(`https://medical-camp-server-sigma.vercel.app/manage-camp/${params.id}`),
+                loader: ({params})=> axios.get(`https://medical-camp-server-eight.vercel.app/manage-camp/${params.id}`),
             },
             {
                 path: '/contact-us', 
@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({params})=> axios.get(`https://medical-camp-server-sigma.vercel.app/registered-camp/${params.id}`)
+                loader: ({params})=> axios.get(`https://medical-camp-server-eight.vercel.app/registered-camp/${params.id}`)
             },
             {
                 path: 'payment-history',
@@ -90,7 +90,7 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-Camp/update-manage-camp/:id',
                 element: <AdminRoute><UpdateManageCamp></UpdateManageCamp></AdminRoute>,
-                loader: ({params})=> axios.get(`https://medical-camp-server-sigma.vercel.app/manage-camp/${params.id}`),
+                loader: ({params})=> axios.get(`https://medical-camp-server-eight.vercel.app/manage-camp/${params.id}`),
             },
             {
                 path: 'manage-register-camp',
